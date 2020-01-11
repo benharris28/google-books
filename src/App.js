@@ -13,21 +13,32 @@ class App extends React.Component {
 
   }
 
-  
+  handleSearch(search) {
+    this.setState({
+      searchTerm: search
+    });
+  }
 
-
+  handleFilterBookType(filter) {
+    this.setState({
+      bookTypeFilter: filter
+    });
+  }
   
   render() {
-    
+    console.log(this.state);
       
     
     
     return (
       <div className="App">
-        <SearchBar />
-        <Filter />
+        <SearchBar 
+          handleSeach={search => this.handleSearch(search)}
+          searchTerm={this.state.searchTerm}/>
+        <Filter 
+          handleFilterBookType={filter => this.handleFilterBookType(filter)}/>
         <BookList 
-          booklist={this.state.booklist}/>
+          booklist={this.state.books}/>
       </div>
     );
 

@@ -6,7 +6,10 @@ class Filter extends React.Component {
             <div className="filter">
                 <form className="filter_form">
                     <label htmlFor="print-type">Print Type</label>
-                    <select name="print-type-filter">
+                    <select 
+                        name="print-type-filter"
+                        onChange={e => this.props.handleFilterBookType(e.target.value)}
+                    >
                         <option value="all">All</option>
                         <option value="Books">Books</option>
                         <option value="Magazines">Magazines</option>
