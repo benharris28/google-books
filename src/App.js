@@ -24,7 +24,23 @@ class App extends React.Component {
       bookTypeFilter: filter
     });
   }
+
+  handleFilterPrintType(type) {
+    this.setState({
+      printTypeFilter: type
+    });
+  }
   
+  formatParams() {
+   
+  }
+  
+  handleSubmit(e) {
+    e.preventDefault();
+    const { searchTerm, bookTypeFilter, printTypeFilter } = this.state;
+
+  }
+
   render() {
     console.log(this.state);
       
@@ -36,7 +52,10 @@ class App extends React.Component {
           handleSeach={search => this.handleSearch(search)}
           searchTerm={this.state.searchTerm}/>
         <Filter 
-          handleFilterBookType={filter => this.handleFilterBookType(filter)}/>
+          handleFilterBookType={filter => this.handleFilterBookType(filter)}
+          handleFilterPrintType={type => this.handleFilterPrintType(type)}
+          
+          />
         <BookList 
           booklist={this.state.books}/>
       </div>
