@@ -4,7 +4,7 @@ class SearchBar extends React.Component {
     render() {
         return (
          <div className="SearchBar">
-             <form>
+             <form onSubmit={e => this.props.handleSubmit(e)} >
                  <label htmlFor="search">Search</label>
                  <input
                     type="text"
@@ -14,6 +14,8 @@ class SearchBar extends React.Component {
                     value={this.props.searchTerm}
                     onChange={e => this.props.handleSearch(e.target.value)}
                      />
+                    <button 
+                        type="submit">Search</button>
              </form>
 
          </div>   
